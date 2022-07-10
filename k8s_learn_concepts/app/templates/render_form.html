@@ -1,0 +1,19 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+<div align="middle">
+    <img src="{{ url_for('static',filename='images/penguin.jpg') }}"/>
+</div>
+<div style="display: flex; justify-content: flex-start"></div>
+    <a href="{{ url_for('home_page') }}"> Home </a>
+    <a href="{{ url_for('form_fill_page') }}"> &nbsp;&nbsp;&nbsp;&nbsp;Submit-Response </a>
+    <a href="{{ url_for('show_user_list') }}"> &nbsp;&nbsp;&nbsp;&nbsp;User-List </a>
+    <a href="{{ url_for('show_user_response_list') }}"> &nbsp;&nbsp;&nbsp;&nbsp;User-Response-List </a>
+</div>
+    <h2>Please fill out the form to capture your response: <br></h2> 
+    {{ wtf.quick_form(form) }}
+<!--     {% for post in posts %}
+    <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
+    {% endfor %} -->
+{% endblock %}

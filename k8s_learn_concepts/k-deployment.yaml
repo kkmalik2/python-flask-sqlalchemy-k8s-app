@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kk-flask-app-deployment
+  labels:
+    app: kk-flask-app-k8s
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kk-flask-app-k8s
+  template:
+    metadata:
+      labels:
+        app: kk-flask-app-k8s
+    spec:
+      containers:
+        - name: flask-app-container
+          image: kanishkmalik/kk-flask-app-k8s
+          imagePullPolicy: IfNotPresent
+          envFrom:
+            - configMapRef:
+                name: kk-flask-app-configmap
+          ports:
+            - name: flask-port 
+              containerPort: 5000
+          # env: 
+          #  - name: SECRET_USERNAME
+          #    valueFrom:
+          #      secretKeyRef:
+          #        name: mysecret
+          #        key: username
+          livenessProbe:
+            httpGet:
+              path: /
+              port: flask-port
+            initialDelaySeconds: 10
+            timeoutSeconds: 15
+          readinessProbe:
+            httpGet:
+              path: /
+              port: flask-port
+            initialDelaySeconds: 10
+            timeoutSeconds: 15
+
+
+# kubectl apply -f k-deployment.yaml
+# kubectl apply -f k-service.yaml
+# kubectl describe <service_name>
+# kubectl get pod
+# kubectl get service
+# kubectl get pod -o wide
+# kubectl get deployment kk-flask-app-deployment -o yaml
+# kubectl delete -f <deployment yaml>
+# kubectl exec -it kk-flask-app-deployment-c47b8f846-dbrn7 -- tail /python-docker/app.log   

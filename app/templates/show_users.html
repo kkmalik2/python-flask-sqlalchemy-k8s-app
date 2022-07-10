@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    {{ super() }}
+    <style>
+        table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        border-color: #96D4D4;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+<h1> 
+    <!-- <ol>
+        {% for i in range(0,len_result) %}
+        <li>    
+            {{result[i].name}}
+        </li>
+        {% endfor %}
+    </ol> -->
+    <h2>List of users (criteria: Unique Phone Number):  <br></h2>
+    <table style="margin-left: 20px;width:80%">
+    <th>
+        <tr style="color:green;font-size:20px ">
+            <td>name</td>
+            <td>email</td>
+            <td>phone</td>
+            <td>address</td>
+            <td>last update time</td>
+        </tr>
+    </th>
+    {% for i in range(0,len_result) %}
+    <tr>
+        <td>{{result[i].name}}</td>
+        <td>{{result[i].email}}</td>
+        <td>{{result[i].phone}}</td>
+        <td>{{result[i].address}}</td>
+        <td>{{result[i].lastUpdateDate}}</td>
+    </tr>    
+    {% endfor %}
+    </table>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+apiVersion: v1 
+kind: ConfigMap 
+metadata:
+  name: kk-flask-app-configmap 
+data:
+  # Configuration values can be set as key-value properties
+  # database: mongodb
+  # database_uri: mongodb://localhost:27017
+  LOG_FILE_PATH: persistedVolume/app.log
+  DATABASE_TYPE: sqlite
+  DATABASE_LOCATION: persistedVolume/user-pref.db
+  # Or set as complete file contents (even JSON!)
+  # keys: | 
+  #   image.public.key=771 
+  #   rsa.public.key=42

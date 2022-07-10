@@ -1,0 +1,23 @@
+<html>
+    <head>
+      {% block head %}
+      {% if title %}
+      <title>{{ title }} - Microblog</title>
+      {% else %}
+      <title>Welcome to kk-blog</title>
+      {% endif %}
+      {% endblock %}
+    </head>
+    <body>
+    <div align="middle">
+      <img src="{{ url_for('static',filename='images/penguin.jpg') }}"/>
+      </div>
+      <div style="display: flex; justify-content: flex-start">
+        <a href="{{ url_for('home_page') }}"> Home </a>
+        <a href="{{ url_for('form_fill_page') }}"> &nbsp;&nbsp;&nbsp;&nbsp;  Submit-Response </a>
+        <a href="{{ url_for('show_user_list') }}"> &nbsp;&nbsp;&nbsp;&nbsp;User-List </a>
+        <a href="{{ url_for('show_user_response_list') }}"> &nbsp;&nbsp;&nbsp;&nbsp;User-Response-List </a>
+      </div>
+        {% block content %}{% endblock %}
+    </body>
+</html>

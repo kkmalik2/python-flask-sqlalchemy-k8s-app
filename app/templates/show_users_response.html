@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    {{ super() }}
+    <style>
+        table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        border-color: #96D4D4;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+<h2>List of user responses over time in descending order of response time: <br></h2>
+    <table style="margin-left: 20px;width:80%">
+    <th>
+        <tr style="color:green;font-size:20px ">
+            <td>name</td>
+            <td>phone</td>
+            <td>favorite_actor</td>
+            <td>response_time</td>
+        </tr>
+    </th>
+
+    {% for u, ur in result %}
+    <tr>
+        <td>{{u.name}}</td>
+        <td>{{u.phone}}</td>
+        <td>{{ur.favorite_actor}}</td>
+        <td>{{ur.response_time}}</td>
+    </tr>  
+    {% endfor %}
+    </table>
+
+{% endblock %}

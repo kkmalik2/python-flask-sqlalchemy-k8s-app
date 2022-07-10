@@ -1,0 +1,11 @@
+.idea
+_pycache_
+kk-venv
+*.db
+# app/__pycache__
+**/__pycache__
+*.log 
+**/*.log 
+*/*.log
+*.md
+test-local.py

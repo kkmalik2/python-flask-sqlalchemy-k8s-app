@@ -1,0 +1,7 @@
+.idea
+_pycache_
+kk-venv
+user-pref.db
+# app/__pycache__
+**/__pycache__
+app.log 

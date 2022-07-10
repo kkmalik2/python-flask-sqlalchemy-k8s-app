@@ -1,0 +1,5 @@
+Flask
+Flask-wtf
+virtualenv
+flask_bootstrap
+sqlalchemy
